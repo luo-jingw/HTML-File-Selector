@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "清理缓存",
+            "type": "shell",
+            "command": "Remove-Item",
+            "args": [
+                "-Path",
+                "*.res,*.exe,*.o",
+                "-Force"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "清理资源文件",
+            "type": "shell",
+            "command": "Remove-Item",
+            "args": [
+                "-Path",
+                "app.res",
+                "-Force",
+                "-ErrorAction",
+                "SilentlyContinue"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "编译资源文件",
+            "type": "shell",
+            "command": "windres",
+            "args": [
+                "app.rc",
+                "-O", "coff",
+                "-o", "app.res"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "cppbuild",
+            "label": "构建调试版本",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "app.res",
+                "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-lshell32",
+                "-lmsimg32",
+                "-mwindows",
+                "-static",
+                "-Wall",
+                "-g"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["清理缓存", "编译资源文件"],
+            "dependsOrder": "sequence"
+        }
+    ]
+}

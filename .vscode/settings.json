@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.rmd": "markdown",
+        "ostream": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
+    }
+}
