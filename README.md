@@ -1,62 +1,62 @@
 # HTML File Selector
 
-一个简洁的 HTML 文件选择器，使用 Win32 API 开发的现代化 GUI 应用程序。
+A modern GUI application developed with Win32 API for managing and opening HTML files.
 
-## 功能特点
+## Features
 
-- 现代化深色主题界面
-- 高清晰度圆角按钮设计
-- 智能文件夹扫描
-- 自动记忆窗口大小和位置
-- 支持自定义 HTML 文件目录
-- 实时按钮悬停效果
-- 清晰的字体渲染
+- Modern dark theme interface
+- High-definition rounded button design
+- Intelligent folder scanning
+- Auto-save window size and position
+- Customizable HTML file directory
+- Real-time button hover effects
+- Clear font rendering with ClearType
 
-## 使用方法
+## Usage
 
-1. 默认扫描 `E:\guide_html` 目录下的所有 HTML 文件
-2. 点击对应按钮可以直接打开 HTML 文件
-3. 点击"设置"按钮可以更改 HTML 文件目录
-4. 程序会自动记住上次的窗口大小和位置
-5. 文件不存在时会显示错误提示
+1. By default, scans HTML files in `E:\guide_html` directory
+2. Click corresponding buttons to open HTML files
+3. Click "Settings" to change the HTML file directory
+4. Window size and position are automatically remembered
+5. Error messages displayed when files are not found
 
-## 界面说明
+## Interface
 
-- 主界面自动列出所有找到的 HTML 文件
-- 底部工具栏：
-  - 设置：修改 HTML 文件目录
-  - 退出：关闭程序
+- Main interface automatically lists all found HTML files
+- Bottom toolbar:
+  - Settings: Change HTML file directory
+  - Exit: Close application
 
-## 技术特性
+## Technical Features
 
-- 使用 Win32 API 原生开发
-- GDI+ 高质量图形渲染
-- ClearType 文字渲染技术
-- 双缓冲绘制避免闪烁
-- 注册表配置持久化
-- 资源编译和图标支持
+- Native Win32 API development
+- GDI+ high-quality graphics rendering
+- ClearType text rendering technology
+- Double buffering to prevent flickering
+- Registry configuration persistence
+- Resource compilation and icon support
 
-## 系统要求
+## System Requirements
 
-- Windows 7 及以上系统
-- 支持 Unicode
-- 不需要额外运行时
+- Windows 7 or higher
+- Unicode support
+- No additional runtime required
 
-## 开发环境
+## Development Environment
 
 - Visual Studio Code
 - MinGW-w64 (MSYS2)
 - Windows SDK
 
-## 编译说明
+## Build Instructions
 
-使用 VS Code 任务系统编译：
-1. 确保安装了 MSYS2 和必要的开发工具
-2. 安装 C/C++ 和 CMake Tools 扩展
-3. 按 F5 直接编译运行
+Using VS Code task system:
+1. Ensure MSYS2 and necessary development tools are installed
+2. Install C/C++ and CMake Tools extensions
+3. Press F5 to compile and run
 
-## 注意事项
+## Notes
 
-- 确保目标目录有读取权限
-- 支持动态添加新的 HTML 文件
-- 窗口设置会保存在注册表中
+- Ensure target directory has read permissions
+- Supports dynamic addition of new HTML files
+- Window settings are stored in registry
