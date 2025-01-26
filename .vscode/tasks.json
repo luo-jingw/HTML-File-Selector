@@ -1,66 +1,63 @@
 {
-    "version": "2.0.0",
     "tasks": [
         {
-            "label": "清理缓存",
-            "type": "shell",
-            "command": "Remove-Item",
-            "args": [
-                "-Path",
-                "*.res,*.exe,*.o",
-                "-Force"
-            ],
-            "group": "build"
-        },
-        {
-            "label": "清理资源文件",
-            "type": "shell",
-            "command": "Remove-Item",
-            "args": [
-                "-Path",
-                "app.res",
-                "-Force",
-                "-ErrorAction",
-                "SilentlyContinue"
-            ],
-            "group": "build"
-        },
-        {
-            "label": "编译资源文件",
-            "type": "shell",
-            "command": "windres",
-            "args": [
-                "app.rc",
-                "-O", "coff",
-                "-o", "app.res"
-            ],
-            "group": "build"
-        },
-        {
             "type": "cppbuild",
-            "label": "构建调试版本",
-            "command": "g++",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
+                "-fdiagnostics-color=always",
+                "-g",
                 "${file}",
-                "app.res",
-                "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-lshell32",
-                "-lmsimg32",
-                "-mwindows",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-DUNICODE",
+                "-D_UNICODE",
+                "-municode",
                 "-static",
-                "-Wall",
-                "-g"
+                "-static-libgcc",
+                "-static-libstdc++",
+                "resource.res",
+                "-lgdi32",
+                "-luser32",
+                "-lshell32",
+                "-lcomdlg32",
+                "-lole32",     // 添加 COM 库链接
+                "-lgdiplus",  // 添加GDI+库
+                "-mwindows"  // 添加此行以使用Windows子系统
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn": ["清理缓存", "编译资源文件"],
-            "dependsOrder": "sequence"
+            "dependsOn": ["编译资源文件"],
+            "detail": "调试器生成的任务。"
+        },
+        {
+            "type": "shell",
+            "label": "编译资源文件",
+            "command": "C:\\msys64\\ucrt64\\bin\\windres.exe",
+            "args": [
+                "-I", "C:/msys64/ucrt64/include",  // 添加包含路径
+                "--input",
+                "resource.rc",
+                "--output",
+                "resource.res",
+                "--output-format=coff",
+                "--preprocessor=cpp",
+                "-DUNICODE",
+                "-D_UNICODE"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": []
         }
-    ]
+    ],
+    "version": "2.0.0"
 }
