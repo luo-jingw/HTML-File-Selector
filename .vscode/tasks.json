@@ -43,15 +43,10 @@
             "label": "编译资源文件",
             "command": "C:\\msys64\\ucrt64\\bin\\windres.exe",
             "args": [
-                "-I", "C:/msys64/ucrt64/include",  // 添加包含路径
-                "--input",
-                "resource.rc",
-                "--output",
-                "resource.res",
-                "--output-format=coff",
-                "--preprocessor=cpp",
-                "-DUNICODE",
-                "-D_UNICODE"
+                "-O", "coff",
+                "-F", "pe-x86-64",
+                "-i", "resource.rc",
+                "-o", "resource.res"
             ],
             "options": {
                 "cwd": "${fileDirname}"
