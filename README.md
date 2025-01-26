@@ -1,62 +1,112 @@
 # HTML File Selector
 
-A modern GUI application developed with Win32 API for managing and opening HTML files.
+A modern and elegant GUI application for managing and launching HTML files, developed with Win32 API and modern C++.
 
-## Features
+## Key Features
 
-- Modern dark theme interface
-- High-definition rounded button design
-- Intelligent folder scanning
-- Auto-save window size and position
-- Customizable HTML file directory
-- Real-time button hover effects
-- Clear font rendering with ClearType
+### User Interface
+- Modern dark theme with high DPI support
+- High-quality rounded buttons with hover effects
+- Dynamic layout with automatic centering
+- Smooth animations and transitions
+- ClearType text rendering
 
-## Usage
+### Core Functions
+- Automatic HTML file discovery
+- One-click file launching
+- Custom directory configuration
+- Window size/position memory
+- Real-time file monitoring
 
-1. By default, scans HTML files in `E:\guide_html` directory
-2. Click corresponding buttons to open HTML files
-3. Click "Settings" to change the HTML file directory
-4. Window size and position are automatically remembered
-5. Error messages displayed when files are not found
-
-## Interface
-
-- Main interface automatically lists all found HTML files
-- Bottom toolbar:
-  - Settings: Change HTML file directory
-  - Exit: Close application
-
-## Technical Features
-
-- Native Win32 API development
+### Technical Highlights
+- Native Win32 API implementation
 - GDI+ high-quality graphics rendering
-- ClearType text rendering technology
-- Double buffering to prevent flickering
-- Registry configuration persistence
-- Resource compilation and icon support
+- Double buffering for smooth display
+- Registry-based configuration storage
+- Resource compilation with icon support
 
-## System Requirements
+## Installation
 
-- Windows 7 or higher
-- Unicode support
-- No additional runtime required
+No installation required - simply download and run the executable.
 
-## Development Environment
+## Quick Start
 
+1. First Launch:
+   - Program scans `E:\guide_html` by default
+   - All HTML files are automatically listed
+   - Window position is remembered
+
+2. Basic Operations:
+   - Click any file button to open the HTML file
+   - Use "Settings" to change directory
+   - Window size adjusts automatically
+
+3. Configuration:
+   - Click "Settings" to select folder
+   - All settings auto-save
+   - Instant UI update on changes
+
+## Development
+
+### Prerequisites
 - Visual Studio Code
-- MinGW-w64 (MSYS2)
+- MSYS2 (MinGW-w64)
 - Windows SDK
+- C++17 or later
 
-## Build Instructions
+### Build Steps
+1. Install required tools:
+   ```bash
+   pacman -S mingw-w64-x86_64-toolchain
+   ```
 
-Using VS Code task system:
-1. Ensure MSYS2 and necessary development tools are installed
-2. Install C/C++ and CMake Tools extensions
-3. Press F5 to compile and run
+2. Clone and build:
+   ```bash
+   git clone [repository-url]
+   cd HTML-File-Selector
+   code .
+   # Press F5 to build and run
+   ```
+
+### Project Structure
+```
+HTML-File-Selector/
+├── main.cpp          # Main application code
+├── resource.h        # Resource definitions
+├── resource.rc      # Resource configuration
+├── app.manifest     # Application manifest
+└── app.ico          # Application icon
+```
+
+## Technical Details
+
+### Dependencies
+- Win32 API
+- GDI+ Graphics Library
+- Windows Registry API
+- COM for folder dialogs
+
+### Performance
+- Optimized rendering engine
+- Minimal memory footprint
+- Fast startup time
+- Efficient file handling
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Notes
 
-- Ensure target directory has read permissions
-- Supports dynamic addition of new HTML files
-- Window settings are stored in registry
+- Windows 7 or later required
+- High DPI display supported
+- UTF-8 encoding for all files
+- Registry used for settings
